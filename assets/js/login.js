@@ -1,24 +1,31 @@
 // Include crypto-js library for hashing
 const CryptoJS = require("crypto-js");
-
+document
+  .getElementById("login-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("pwd").value;
+  });
 // The stored hashed password (retrieved from your system)
-let storedHashedPassword = "a1b2c3d4e5"; // This should be a real hashed password
+let storedHashedPassword =
+  "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918"; // This should be a real hashed password
 
 // Function to hash password
-function hashPassword(password) {
-  return CryptoJS.SHA256(password).toString();
+function hashPassword(pwd) {
+  return CryptoJS.SHA256(pwd).toString();
 }
 
 // Function to check the entered password against the stored one
-function checkPassword(username, password) {
+function checkPassword(username, pwd) {
   // Hash the entered password
-  let hashedPassword = hashPassword(password);
+  let hashedPassword = hashPassword(pwd);
 
   // Check the hashed password against the stored one
   if (hashedPassword === storedHashedPassword) {
-    console.log("Login successful!");
+    window.location.href = "https://google.com";
   } else {
-    console.log("Login failed!");
+    UIkit.modal("error-modal").show();
   }
 }
 
