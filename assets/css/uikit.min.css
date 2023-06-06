@@ -344,6 +344,10 @@ template {
     --uk-breakpoint-xl: 1600px
 }
 
+.csv-table {
+    background-color: #2e2e2e;
+}
+
 .uk-link-muted a,
 .uk-link-toggle .uk-link-muted,
 a.uk-link-muted {
