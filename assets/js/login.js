@@ -1,12 +1,5 @@
 // Include crypto-js library for hashing
 const CryptoJS = require("crypto-js");
-document
-  .getElementById("login-form")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("pwd").value;
-  });
 // The stored hashed password (retrieved from your system)
 let storedHashedPassword =
   "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918"; // This should be a real hashed password
@@ -22,12 +15,18 @@ function checkPassword(username, pwd) {
   let hashedPassword = hashPassword(pwd);
 
   // Check the hashed password against the stored one
-  if (hashedPassword === storedHashedPassword) {
-    window.location.href = "https://google.com";
+  if (hashedPassword === storedHashedPassword && username === "admin") {
+    window.location.href = "/public/logged.html";
   } else {
-    UIkit.modal("error-modal").show();
+    UIkit.modal(document.querySelector("#error-modal")).show();
   }
 }
 
-// Use the function
-checkPassword("username", "password");
+document
+  .getElementById("login-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("pwd").value;
+    checkPassword(username, password);
+  });

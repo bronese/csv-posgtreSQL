@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html class="uk-dark">
+  <head>
+    <title>Drag and Drop Page</title>
+    <link rel="stylesheet" href="assets/css/uikit.css" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
+    <style>
+      .uk-placeholder {
+        background-color: #0076ff;
+        color: white;
+      }
+      .editable {
+        cursor: pointer;
+        background-color: #f2f2f2;
+      }
+      .uk-button {
+        border-radius: 8px;
+      }
+      .js-upload {
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .js-upload input[type="file"] {
+        outline: none;
+        border: none;
+      }
+      #csv-data {
+        position: relative;
+        display: inline-block;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="uk-section uk-container uk-text-center">
+      <div class="js-upload uk-placeholder uk-text-center">
+        <span
+          uk-icon="icon: cloud-upload"
+          ratio="3"
+          style="height: 35px"
+        ></span>
+        <p class="uk-text-middle" style="font-size: 27px">
+          Select a file:
+          <a class="uk-form-file">
+            <input id="file" type="file" accept=".csv" /></a
+          >.
+        </p>
+      </div>
+      <div id="csv-data"></div>
+
+      <div
+        id="row-column-add"
+        class="uk-flex uk-flex-between uk-flex-middle uk-margin-top"
+        style="display: none"
+      >
+        <button
+          id="add-row-button"
+          class="uk-button uk-button-primary uk-light"
+        >
+          Add Row
+        </button>
+        <button
+          id="add-column-button"
+          class="uk-button uk-button-primary uk-light"
+        >
+          Add Column
+        </button>
+      </div>
+      <div>
+        <div class="uk-flex uk-flex-between uk-flex-middle uk-margin-top">
+          <div>
+            <button
+              id="save-button"
+              class="uk-button uk-button-primary"
+              disabled
+            >
+              Save CSV to machine
+            </button>
+          </div>
+          <div>
+            <button id="push-button" class="uk-button uk-button-primary">
+              Push to parser
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="error-modal" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+          <h2 class="uk-modal-title">Error</h2>
+          <p>Invalid file format. Please select a CSV file.</p>
+          <p class="uk-text-right">
+            <button
+              class="uk-button uk-button-primary uk-modal-close"
+              type="button"
+            >
+              OK
+            </button>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/uikit.js"></script>
+    <script src="assets/js/uikit-icons.js"></script>
+    <script src="assets/js/parse-csv.js"></script>
+  </body>
+</html>
