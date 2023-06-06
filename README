@@ -1,0 +1,7 @@
+# CSV-PostgreSQL
+
+TO-DO:
+
+- Fix login logic.
+- Add CSV data handling with regression using NumPy.
+- Port data into PostgreSQL.
