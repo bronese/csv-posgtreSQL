@@ -1,7 +1,15 @@
 # CSV-PostgreSQL
 
-TO-DO:
+To-do:
+- Fix login logic
+- Add CSV regression data handling with numpy
+	- learn how to socket numpy (death)
+- Port the data into its necessary schemas
 
-- Fix login logic.
-- Add CSV data handling with regression using NumPy.
-- Port data into PostgreSQL.
+What works:
+- CSV reading and tabulation on logged.html 
+- In-browser editing of generated table 
+- Saving of edited table back to host machine
+
+What doesn't work:
+- Login logic broke (unsure why!)
